@@ -1,16 +1,35 @@
-# React + Vite
+# Smoke Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal tool to help me quit smoking — built to make accountability simple, honest, and private.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What it does
 
-## React Compiler
+Every day, I log whether I stayed clean or smoked, and rate my craving level. That's it. No lectures, no gamification, no clutter.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The app keeps track of my streak — the number of consecutive days without smoking — and shows me a rolling history of the last week so I can see my patterns at a glance.
 
-## Expanding the ESLint configuration
+If I haven't logged by a certain time, it sends me a gentle push notification as a reminder. Just enough to keep me honest without being annoying.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Why I built this
+
+There are plenty of quit-smoking apps out there, but most of them are either bloated with features I don't need, require a subscription, or feel like they're designed for someone else. I wanted something that fit exactly how I think about this:
+
+- **One decision per day.** Did I smoke or not?
+- **One number that matters.** How long is my streak?
+- **No judgment.** If I slip, I log it and keep going.
+
+Building it myself also means I own my data. It lives in a private file in my own repository — nothing is sold, nothing is tracked by a third party.
+
+---
+
+## The vision
+
+The goal is to eventually not need this app.
+
+But while I'm on the journey, I want a daily ritual that takes less than ten seconds, a streak number that motivates me to protect it, and a reminder that shows up before the craving does.
+
+Simple, private, honest. That's it.
