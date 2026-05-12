@@ -1,0 +1,302 @@
+.tracker {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.tracker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.tracker-title {
+  font-family: var(--heading);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--text-h);
+  letter-spacing: -0.2px;
+}
+
+.tracker-main {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 0 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.tracker-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  color: var(--text);
+  font-size: 15px;
+}
+
+/* Streak */
+.streak-section {
+  text-align: center;
+  padding: 32px 24px;
+  border-radius: 16px;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+}
+
+.streak-number {
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -3px;
+}
+
+.streak-label {
+  font-size: 15px;
+  color: var(--text);
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.streak-zero {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Today section */
+.today-section h2 {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.today-logged {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+}
+
+.log-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-clean,
+.btn-smoked {
+  flex: 1;
+  padding: 14px 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-clean:hover,
+.btn-smoked:hover {
+  opacity: 0.85;
+}
+
+.btn-clean {
+  background: #16a34a;
+  color: #fff;
+}
+
+.btn-smoked {
+  background: var(--code-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Status badge */
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status-badge.clean {
+  background: rgba(22, 163, 74, 0.15);
+  color: #16a34a;
+}
+
+.status-badge.smoked {
+  background: rgba(180, 83, 9, 0.12);
+  color: #b45309;
+}
+
+.craving-display {
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* Craving prompt */
+.craving-section {
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.craving-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-h);
+  margin: 0;
+  text-align: center;
+}
+
+.craving-scale {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.craving-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-h);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.craving-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.craving-btn.selected {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.craving-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-confirm {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-confirm:hover {
+  opacity: 0.85;
+}
+
+.btn-confirm:disabled,
+.btn-dismiss:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-dismiss {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.btn-dismiss:hover {
+  border-color: var(--text);
+}
+
+/* Ghost button (header logout) */
+.btn-ghost {
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.btn-ghost:hover {
+  border-color: var(--text);
+  color: var(--text-h);
+}
+
+/* History */
+.history-section h2 {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.history-date {
+  font-size: 13px;
+  font-family: var(--mono);
+  color: var(--text);
+  flex-shrink: 0;
+  min-width: 90px;
+}
+
+.history-craving {
+  font-size: 13px;
+  color: var(--text);
+  margin-left: auto;
+}
+
+.not-logged {
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.5;
+}

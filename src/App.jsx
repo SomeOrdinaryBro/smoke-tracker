@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import CallbackPage from './pages/CallbackPage'
+import TrackerPage from './pages/TrackerPage'
 import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
           path="/"
           element={
             <ProtectedRoute>
-              <div>App goes here</div>
+              <TrackerPage />
             </ProtectedRoute>
           }
         />

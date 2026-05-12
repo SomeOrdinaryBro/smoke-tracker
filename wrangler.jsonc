@@ -2,6 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "smoke-tracker",
   "compatibility_date": "2026-05-12",
+  "main": "worker/index.js",
   "observability": {
     "enabled": true
   },

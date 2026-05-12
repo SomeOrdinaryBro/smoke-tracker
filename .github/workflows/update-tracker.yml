@@ -1,15 +1,60 @@
 name: Update Tracker Data
 
 on:
-  workflow_dispatch:
-    inputs:
-      payload:
-        description: JSON patch payload from Worker
-        required: true
+  repository_dispatch:
+    types: [log-day]
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # JSON write logic goes here (Phase 3)
+        with:
+          token: ${{ secrets.GH_PAT }}
+          persist-credentials: true
+
+      - name: Update tracker JSON
+        env:
+          LOG_DATE: ${{ github.event.client_payload.date }}
+          LOG_SMOKED: "${{ github.event.client_payload.smoked }}"
+          LOG_CRAVING: "${{ github.event.client_payload.craving }}"
+        run: |
+          cat > /tmp/update.js << 'EOF'
+          const fs = require('fs');
+
+          const data = JSON.parse(fs.readFileSync('data/tracker.json', 'utf8'));
+          const date = process.env.LOG_DATE;
+          const smoked = process.env.LOG_SMOKED === 'true';
+          const craving = parseInt(process.env.LOG_CRAVING, 10);
+
+          data.logs[date] = { smoked, craving };
+
+          function calculateStreak(logs, today) {
+            if (logs[today] && logs[today].smoked) return 0;
+            let streak = 0;
+            const d = new Date(today + 'T00:00:00Z');
+            while (true) {
+              const key = d.toISOString().slice(0, 10);
+              if (logs[key] && !logs[key].smoked) {
+                streak++;
+                d.setUTCDate(d.getUTCDate() - 1);
+              } else {
+                break;
+              }
+            }
+            return streak;
+          }
+
+          data.streak = calculateStreak(data.logs, date);
+
+          fs.writeFileSync('data/tracker.json', JSON.stringify(data, null, 2) + '\n');
+          console.log(`Logged ${date}: smoked=${smoked}, craving=${craving}, streak=${data.streak}`);
+          EOF
+          node /tmp/update.js
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "log: ${{ github.event.client_payload.date }}"
+          git push
