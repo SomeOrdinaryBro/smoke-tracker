@@ -1,0 +1,15 @@
+name: Update Tracker Data
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: JSON patch payload from Worker
+        required: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # JSON write logic goes here (Phase 3)
