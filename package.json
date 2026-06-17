@@ -14,7 +14,7 @@
     "@auth0/auth0-react": "^2.16.2",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "react-router-dom": "^7.15.0"
+    "react-router-dom": "^7.18.0"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.36.4",
